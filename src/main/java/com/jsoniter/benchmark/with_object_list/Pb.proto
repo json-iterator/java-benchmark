@@ -1,0 +1,8 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+message PbTestObject {
+  message ElementObject {
+    string field1 = 1;
+  }
+  repeated ElementObject field1 = 1;
+}

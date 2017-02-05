@@ -13,18 +13,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark           Mode  Cnt     Score     Error  Units
-DeserDslJson.deser  avgt    5  9447.979 ± 874.721  ns/op (3.09x)
-
-    55,809,370,771      cycles                                                        (66.77%)
-   144,924,278,921      instructions              #    2.60  insns per cycle          (83.44%)
-       363,662,713      cache-references                                              (83.34%)
-        71,799,007      cache-misses              #   19.743 % of all cache refs      (83.40%)
-            43,652      page-faults
-    27,459,174,370      branches                                                      (83.30%)
-       130,971,965      branch-misses             #    0.48% of all branches          (83.31%)
-
-      15.870780459 seconds time elapsed
+Benchmark           Mode  Cnt       Score      Error  Units
+DeserDslJson.deser  avgt    5  307569.103 ± 6459.946  ns/op
  */
 @State(Scope.Thread)
 public class DeserDslJson {

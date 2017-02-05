@@ -16,20 +16,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Tuple
-Benchmark           Mode  Cnt        Score        Error  Units
-DeserThrift.deser  thrpt    5  4894731.174 ± 190486.954  ops/s (1.38x)
-DeserThrift.ser    thrpt    5  2537935.619 ± 132875.762  ops/s (0.47x)
-
-Compact
-Benchmark           Mode  Cnt        Score        Error  Units
-DeserThrift.deser  thrpt    5  4490620.091 ± 118728.895  ops/s
-DeserThrift.ser    thrpt    5  2114218.709 ±  66750.207  ops/s
-
-Binary
-Benchmark           Mode  Cnt        Score       Error  Units
-DeserThrift.deser  thrpt    5  4463916.092 ± 74085.264  ops/s
-DeserThrift.ser    thrpt    5  1780672.495 ± 21550.292  ops/s
+Benchmark          Mode  Cnt       Score      Error  Units
+DeserThrift.deser  avgt    5  250016.572 ± 4514.340  ns/op
  */
 @State(Scope.Thread)
 public class DeserThrift {

@@ -4,6 +4,8 @@ import com.jsoniter.benchmark.All;
 import org.apache.thrift.TException;
 import org.apache.thrift.TSerializer;
 import org.apache.thrift.protocol.TCompactProtocol;
+import org.apache.thrift.protocol.TProtocol;
+import org.apache.thrift.transport.TIOStreamTransport;
 import org.junit.Test;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.*;
@@ -11,28 +13,19 @@ import org.openjdk.jmh.infra.BenchmarkParams;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.RunnerException;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /*
-Tuple
-Benchmark           Mode  Cnt        Score        Error  Units
-DeserThrift.deser  thrpt    5  4894731.174 ± 190486.954  ops/s (1.38x)
-DeserThrift.ser    thrpt    5  2537935.619 ± 132875.762  ops/s (0.47x)
-
-Compact
-Benchmark           Mode  Cnt        Score        Error  Units
-DeserThrift.deser  thrpt    5  4490620.091 ± 118728.895  ops/s
-DeserThrift.ser    thrpt    5  2114218.709 ±  66750.207  ops/s
-
-Binary
-Benchmark           Mode  Cnt        Score       Error  Units
-DeserThrift.deser  thrpt    5  4463916.092 ± 74085.264  ops/s
-DeserThrift.ser    thrpt    5  1780672.495 ± 21550.292  ops/s
+Benchmark      Mode  Cnt       Score      Error  Units
+SerThrift.ser  avgt    5  467818.566 ± 4049.569  ns/op
  */
 @State(Scope.Thread)
 public class SerThrift {
 
-    private TSerializer serializer;
+    private ByteArrayOutputStream byteArrayOutputStream;
+    private TProtocol protocol;
     private ThriftTestObject testObject;
 
     @Setup(Level.Trial)
@@ -43,7 +36,9 @@ public class SerThrift {
         testObject.setField3("3");
         testObject.setField4("4");
         testObject.setField5("5");
-        serializer = new TSerializer(new TCompactProtocol.Factory());
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        TCompactProtocol.Factory protocolFactory = new TCompactProtocol.Factory();
+        protocol = protocolFactory.getProtocol(new TIOStreamTransport(byteArrayOutputStream));
     }
 
     @Test
@@ -53,8 +48,14 @@ public class SerThrift {
     }
 
     @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void ser(Blackhole bh) throws TException {
-        bh.consume(serializer.serialize(testObject));
+        for (int i = 0; i < 1000; i++) {
+            byteArrayOutputStream.reset();
+            testObject.write(protocol);
+            bh.consume(byteArrayOutputStream);
+        }
     }
 
     public static void main(String[] args) throws IOException, RunnerException {

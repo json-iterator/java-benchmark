@@ -17,52 +17,52 @@ public final class Pb {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 field1 = 1;</code>
+     * <code>fixed32 field1 = 1;</code>
      */
     int getField1();
 
     /**
-     * <code>int32 field2 = 2;</code>
+     * <code>fixed32 field2 = 2;</code>
      */
     int getField2();
 
     /**
-     * <code>int32 field3 = 3;</code>
+     * <code>fixed32 field3 = 3;</code>
      */
     int getField3();
 
     /**
-     * <code>int32 field4 = 4;</code>
+     * <code>fixed32 field4 = 4;</code>
      */
     int getField4();
 
     /**
-     * <code>int32 field5 = 5;</code>
+     * <code>fixed32 field5 = 5;</code>
      */
     int getField5();
 
     /**
-     * <code>int32 field6 = 6;</code>
+     * <code>fixed32 field6 = 6;</code>
      */
     int getField6();
 
     /**
-     * <code>int32 field7 = 7;</code>
+     * <code>fixed32 field7 = 7;</code>
      */
     int getField7();
 
     /**
-     * <code>int32 field8 = 8;</code>
+     * <code>fixed32 field8 = 8;</code>
      */
     int getField8();
 
     /**
-     * <code>int32 field9 = 9;</code>
+     * <code>fixed32 field9 = 9;</code>
      */
     int getField9();
 
     /**
-     * <code>int32 field10 = 10;</code>
+     * <code>fixed32 field10 = 10;</code>
      */
     int getField10();
   }
@@ -115,54 +115,54 @@ public final class Pb {
               }
               break;
             }
-            case 8: {
+            case 13: {
 
-              field1_ = input.readInt32();
+              field1_ = input.readFixed32();
               break;
             }
-            case 16: {
+            case 21: {
 
-              field2_ = input.readInt32();
+              field2_ = input.readFixed32();
               break;
             }
-            case 24: {
+            case 29: {
 
-              field3_ = input.readInt32();
+              field3_ = input.readFixed32();
               break;
             }
-            case 32: {
+            case 37: {
 
-              field4_ = input.readInt32();
+              field4_ = input.readFixed32();
               break;
             }
-            case 40: {
+            case 45: {
 
-              field5_ = input.readInt32();
+              field5_ = input.readFixed32();
               break;
             }
-            case 48: {
+            case 53: {
 
-              field6_ = input.readInt32();
+              field6_ = input.readFixed32();
               break;
             }
-            case 56: {
+            case 61: {
 
-              field7_ = input.readInt32();
+              field7_ = input.readFixed32();
               break;
             }
-            case 64: {
+            case 69: {
 
-              field8_ = input.readInt32();
+              field8_ = input.readFixed32();
               break;
             }
-            case 72: {
+            case 77: {
 
-              field9_ = input.readInt32();
+              field9_ = input.readFixed32();
               break;
             }
-            case 80: {
+            case 85: {
 
-              field10_ = input.readInt32();
+              field10_ = input.readFixed32();
               break;
             }
           }
@@ -191,7 +191,7 @@ public final class Pb {
     public static final int FIELD1_FIELD_NUMBER = 1;
     private int field1_;
     /**
-     * <code>int32 field1 = 1;</code>
+     * <code>fixed32 field1 = 1;</code>
      */
     public int getField1() {
       return field1_;
@@ -200,7 +200,7 @@ public final class Pb {
     public static final int FIELD2_FIELD_NUMBER = 2;
     private int field2_;
     /**
-     * <code>int32 field2 = 2;</code>
+     * <code>fixed32 field2 = 2;</code>
      */
     public int getField2() {
       return field2_;
@@ -209,7 +209,7 @@ public final class Pb {
     public static final int FIELD3_FIELD_NUMBER = 3;
     private int field3_;
     /**
-     * <code>int32 field3 = 3;</code>
+     * <code>fixed32 field3 = 3;</code>
      */
     public int getField3() {
       return field3_;
@@ -218,7 +218,7 @@ public final class Pb {
     public static final int FIELD4_FIELD_NUMBER = 4;
     private int field4_;
     /**
-     * <code>int32 field4 = 4;</code>
+     * <code>fixed32 field4 = 4;</code>
      */
     public int getField4() {
       return field4_;
@@ -227,7 +227,7 @@ public final class Pb {
     public static final int FIELD5_FIELD_NUMBER = 5;
     private int field5_;
     /**
-     * <code>int32 field5 = 5;</code>
+     * <code>fixed32 field5 = 5;</code>
      */
     public int getField5() {
       return field5_;
@@ -236,7 +236,7 @@ public final class Pb {
     public static final int FIELD6_FIELD_NUMBER = 6;
     private int field6_;
     /**
-     * <code>int32 field6 = 6;</code>
+     * <code>fixed32 field6 = 6;</code>
      */
     public int getField6() {
       return field6_;
@@ -245,7 +245,7 @@ public final class Pb {
     public static final int FIELD7_FIELD_NUMBER = 7;
     private int field7_;
     /**
-     * <code>int32 field7 = 7;</code>
+     * <code>fixed32 field7 = 7;</code>
      */
     public int getField7() {
       return field7_;
@@ -254,7 +254,7 @@ public final class Pb {
     public static final int FIELD8_FIELD_NUMBER = 8;
     private int field8_;
     /**
-     * <code>int32 field8 = 8;</code>
+     * <code>fixed32 field8 = 8;</code>
      */
     public int getField8() {
       return field8_;
@@ -263,7 +263,7 @@ public final class Pb {
     public static final int FIELD9_FIELD_NUMBER = 9;
     private int field9_;
     /**
-     * <code>int32 field9 = 9;</code>
+     * <code>fixed32 field9 = 9;</code>
      */
     public int getField9() {
       return field9_;
@@ -272,7 +272,7 @@ public final class Pb {
     public static final int FIELD10_FIELD_NUMBER = 10;
     private int field10_;
     /**
-     * <code>int32 field10 = 10;</code>
+     * <code>fixed32 field10 = 10;</code>
      */
     public int getField10() {
       return field10_;
@@ -291,34 +291,34 @@ public final class Pb {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (field1_ != 0) {
-        output.writeInt32(1, field1_);
+        output.writeFixed32(1, field1_);
       }
       if (field2_ != 0) {
-        output.writeInt32(2, field2_);
+        output.writeFixed32(2, field2_);
       }
       if (field3_ != 0) {
-        output.writeInt32(3, field3_);
+        output.writeFixed32(3, field3_);
       }
       if (field4_ != 0) {
-        output.writeInt32(4, field4_);
+        output.writeFixed32(4, field4_);
       }
       if (field5_ != 0) {
-        output.writeInt32(5, field5_);
+        output.writeFixed32(5, field5_);
       }
       if (field6_ != 0) {
-        output.writeInt32(6, field6_);
+        output.writeFixed32(6, field6_);
       }
       if (field7_ != 0) {
-        output.writeInt32(7, field7_);
+        output.writeFixed32(7, field7_);
       }
       if (field8_ != 0) {
-        output.writeInt32(8, field8_);
+        output.writeFixed32(8, field8_);
       }
       if (field9_ != 0) {
-        output.writeInt32(9, field9_);
+        output.writeFixed32(9, field9_);
       }
       if (field10_ != 0) {
-        output.writeInt32(10, field10_);
+        output.writeFixed32(10, field10_);
       }
     }
 
@@ -329,43 +329,43 @@ public final class Pb {
       size = 0;
       if (field1_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, field1_);
+          .computeFixed32Size(1, field1_);
       }
       if (field2_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, field2_);
+          .computeFixed32Size(2, field2_);
       }
       if (field3_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, field3_);
+          .computeFixed32Size(3, field3_);
       }
       if (field4_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, field4_);
+          .computeFixed32Size(4, field4_);
       }
       if (field5_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, field5_);
+          .computeFixed32Size(5, field5_);
       }
       if (field6_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, field6_);
+          .computeFixed32Size(6, field6_);
       }
       if (field7_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, field7_);
+          .computeFixed32Size(7, field7_);
       }
       if (field8_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, field8_);
+          .computeFixed32Size(8, field8_);
       }
       if (field9_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, field9_);
+          .computeFixed32Size(9, field9_);
       }
       if (field10_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, field10_);
+          .computeFixed32Size(10, field10_);
       }
       memoizedSize = size;
       return size;
@@ -702,13 +702,13 @@ public final class Pb {
 
       private int field1_ ;
       /**
-       * <code>int32 field1 = 1;</code>
+       * <code>fixed32 field1 = 1;</code>
        */
       public int getField1() {
         return field1_;
       }
       /**
-       * <code>int32 field1 = 1;</code>
+       * <code>fixed32 field1 = 1;</code>
        */
       public Builder setField1(int value) {
         
@@ -717,7 +717,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field1 = 1;</code>
+       * <code>fixed32 field1 = 1;</code>
        */
       public Builder clearField1() {
         
@@ -728,13 +728,13 @@ public final class Pb {
 
       private int field2_ ;
       /**
-       * <code>int32 field2 = 2;</code>
+       * <code>fixed32 field2 = 2;</code>
        */
       public int getField2() {
         return field2_;
       }
       /**
-       * <code>int32 field2 = 2;</code>
+       * <code>fixed32 field2 = 2;</code>
        */
       public Builder setField2(int value) {
         
@@ -743,7 +743,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field2 = 2;</code>
+       * <code>fixed32 field2 = 2;</code>
        */
       public Builder clearField2() {
         
@@ -754,13 +754,13 @@ public final class Pb {
 
       private int field3_ ;
       /**
-       * <code>int32 field3 = 3;</code>
+       * <code>fixed32 field3 = 3;</code>
        */
       public int getField3() {
         return field3_;
       }
       /**
-       * <code>int32 field3 = 3;</code>
+       * <code>fixed32 field3 = 3;</code>
        */
       public Builder setField3(int value) {
         
@@ -769,7 +769,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field3 = 3;</code>
+       * <code>fixed32 field3 = 3;</code>
        */
       public Builder clearField3() {
         
@@ -780,13 +780,13 @@ public final class Pb {
 
       private int field4_ ;
       /**
-       * <code>int32 field4 = 4;</code>
+       * <code>fixed32 field4 = 4;</code>
        */
       public int getField4() {
         return field4_;
       }
       /**
-       * <code>int32 field4 = 4;</code>
+       * <code>fixed32 field4 = 4;</code>
        */
       public Builder setField4(int value) {
         
@@ -795,7 +795,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field4 = 4;</code>
+       * <code>fixed32 field4 = 4;</code>
        */
       public Builder clearField4() {
         
@@ -806,13 +806,13 @@ public final class Pb {
 
       private int field5_ ;
       /**
-       * <code>int32 field5 = 5;</code>
+       * <code>fixed32 field5 = 5;</code>
        */
       public int getField5() {
         return field5_;
       }
       /**
-       * <code>int32 field5 = 5;</code>
+       * <code>fixed32 field5 = 5;</code>
        */
       public Builder setField5(int value) {
         
@@ -821,7 +821,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field5 = 5;</code>
+       * <code>fixed32 field5 = 5;</code>
        */
       public Builder clearField5() {
         
@@ -832,13 +832,13 @@ public final class Pb {
 
       private int field6_ ;
       /**
-       * <code>int32 field6 = 6;</code>
+       * <code>fixed32 field6 = 6;</code>
        */
       public int getField6() {
         return field6_;
       }
       /**
-       * <code>int32 field6 = 6;</code>
+       * <code>fixed32 field6 = 6;</code>
        */
       public Builder setField6(int value) {
         
@@ -847,7 +847,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field6 = 6;</code>
+       * <code>fixed32 field6 = 6;</code>
        */
       public Builder clearField6() {
         
@@ -858,13 +858,13 @@ public final class Pb {
 
       private int field7_ ;
       /**
-       * <code>int32 field7 = 7;</code>
+       * <code>fixed32 field7 = 7;</code>
        */
       public int getField7() {
         return field7_;
       }
       /**
-       * <code>int32 field7 = 7;</code>
+       * <code>fixed32 field7 = 7;</code>
        */
       public Builder setField7(int value) {
         
@@ -873,7 +873,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field7 = 7;</code>
+       * <code>fixed32 field7 = 7;</code>
        */
       public Builder clearField7() {
         
@@ -884,13 +884,13 @@ public final class Pb {
 
       private int field8_ ;
       /**
-       * <code>int32 field8 = 8;</code>
+       * <code>fixed32 field8 = 8;</code>
        */
       public int getField8() {
         return field8_;
       }
       /**
-       * <code>int32 field8 = 8;</code>
+       * <code>fixed32 field8 = 8;</code>
        */
       public Builder setField8(int value) {
         
@@ -899,7 +899,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field8 = 8;</code>
+       * <code>fixed32 field8 = 8;</code>
        */
       public Builder clearField8() {
         
@@ -910,13 +910,13 @@ public final class Pb {
 
       private int field9_ ;
       /**
-       * <code>int32 field9 = 9;</code>
+       * <code>fixed32 field9 = 9;</code>
        */
       public int getField9() {
         return field9_;
       }
       /**
-       * <code>int32 field9 = 9;</code>
+       * <code>fixed32 field9 = 9;</code>
        */
       public Builder setField9(int value) {
         
@@ -925,7 +925,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field9 = 9;</code>
+       * <code>fixed32 field9 = 9;</code>
        */
       public Builder clearField9() {
         
@@ -936,13 +936,13 @@ public final class Pb {
 
       private int field10_ ;
       /**
-       * <code>int32 field10 = 10;</code>
+       * <code>fixed32 field10 = 10;</code>
        */
       public int getField10() {
         return field10_;
       }
       /**
-       * <code>int32 field10 = 10;</code>
+       * <code>fixed32 field10 = 10;</code>
        */
       public Builder setField10(int value) {
         
@@ -951,7 +951,7 @@ public final class Pb {
         return this;
       }
       /**
-       * <code>int32 field10 = 10;</code>
+       * <code>fixed32 field10 = 10;</code>
        */
       public Builder clearField10() {
         
@@ -1023,10 +1023,10 @@ public final class Pb {
   static {
     java.lang.String[] descriptorData = {
       "\n\010Pb.proto\"\257\001\n\014PbTestObject\022\016\n\006field1\030\001 " +
-      "\001(\005\022\016\n\006field2\030\002 \001(\005\022\016\n\006field3\030\003 \001(\005\022\016\n\006f" +
-      "ield4\030\004 \001(\005\022\016\n\006field5\030\005 \001(\005\022\016\n\006field6\030\006 " +
-      "\001(\005\022\016\n\006field7\030\007 \001(\005\022\016\n\006field8\030\010 \001(\005\022\016\n\006f" +
-      "ield9\030\t \001(\005\022\017\n\007field10\030\n \001(\005B\002H\001b\006proto3"
+      "\001(\007\022\016\n\006field2\030\002 \001(\007\022\016\n\006field3\030\003 \001(\007\022\016\n\006f" +
+      "ield4\030\004 \001(\007\022\016\n\006field5\030\005 \001(\007\022\016\n\006field6\030\006 " +
+      "\001(\007\022\016\n\006field7\030\007 \001(\007\022\016\n\006field8\030\010 \001(\007\022\016\n\006f" +
+      "ield9\030\t \001(\007\022\017\n\007field10\030\n \001(\007B\002H\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

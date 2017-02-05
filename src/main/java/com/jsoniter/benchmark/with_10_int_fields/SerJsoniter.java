@@ -19,18 +19,8 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
 /*
-Benchmark        Mode  Cnt     Score     Error  Units
-SerJsoniter.ser  avgt    5  5227.980 ± 246.125  ns/op
-
-    55,954,769,626      cycles                                                        (66.70%)
-    92,606,806,682      instructions              #    1.66  insns per cycle          (83.32%)
-       314,644,367      cache-references                                              (83.34%)
-        47,722,145      cache-misses              #   15.167 % of all cache refs      (83.32%)
-            44,954      page-faults
-    16,550,644,697      branches                                                      (83.31%)
-       137,954,713      branch-misses             #    0.83% of all branches          (83.43%)
-
-      15.852883000 seconds time elapsed
+Benchmark        Mode  Cnt       Score      Error  Units
+SerJsoniter.ser  avgt    5  173912.732 ± 5174.114  ns/op
  */
 @State(Scope.Thread)
 public class SerJsoniter {

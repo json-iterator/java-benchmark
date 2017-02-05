@@ -14,18 +14,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark       Mode  Cnt      Score      Error  Units
-SerJackson.ser  avgt    5  11514.836 ± 1401.830  ns/op
-
-    56,897,396,428      cycles                                                        (66.59%)
-   105,861,125,532      instructions              #    1.86  insns per cycle          (83.36%)
-       516,826,736      cache-references                                              (83.32%)
-        93,550,691      cache-misses              #   18.101 % of all cache refs      (83.39%)
-            45,144      page-faults
-    18,363,789,516      branches                                                      (83.40%)
-       149,463,993      branch-misses             #    0.81% of all branches          (83.39%)
-
-      16.360015478 seconds time elapsed
+Benchmark       Mode  Cnt       Score      Error  Units
+SerJackson.ser  avgt    5  117604.479 ± 4629.643  ns/op
  */
 @State(Scope.Thread)
 public class SerJackson {
@@ -46,7 +36,7 @@ public class SerJackson {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void ser(Blackhole bh) throws IOException {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             byteArrayOutputStream.reset();
             objectMapper.writeValue(byteArrayOutputStream, testObject);
             bh.consume(byteArrayOutputStream);

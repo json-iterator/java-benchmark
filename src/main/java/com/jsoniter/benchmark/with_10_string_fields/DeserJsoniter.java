@@ -19,18 +19,8 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
 /*
-Benchmark            Mode  Cnt      Score      Error  Units
-DeserJsoniter.deser  avgt    5  10279.368 ± 1320.001  ns/op (2.83x)
-
-    55,119,796,533      cycles                                                        (66.61%)
-   136,893,417,782      instructions              #    2.48  insns per cycle          (83.30%)
-       390,678,706      cache-references                                              (83.37%)
-        75,572,218      cache-misses              #   19.344 % of all cache refs      (83.38%)
-            45,530      page-faults
-    21,262,585,640      branches                                                      (83.36%)
-       138,715,626      branch-misses             #    0.65% of all branches          (83.40%)
-
-      15.927331070 seconds time elapsed
+Benchmark            Mode  Cnt       Score      Error  Units
+DeserJsoniter.deser  avgt    5  277531.128 ± 5577.964  ns/op
  */
 @State(Scope.Thread)
 public class DeserJsoniter {
@@ -43,7 +33,7 @@ public class DeserJsoniter {
     public void benchSetup(BenchmarkParams params) {
         JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
         JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
-        testJSON = TestObject.createLargeTestJSON();
+        testJSON = TestObject.createTestJSON();
         iter = new JsonIterator();
         typeLiteral = TypeLiteral.create(TestObject.class);
     }

@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 
 /*
 Benchmark            Mode  Cnt       Score      Error  Units
-DeserJsoniter.deser  avgt    5  278299.690 ± 9287.511  ns/op
+DeserJsoniter.deser  avgt    5  187654.012 ± 1685.110  ns/op
  */
 @State(Scope.Thread)
 public class DeserJsoniter {
@@ -51,8 +51,9 @@ public class DeserJsoniter {
     @Test
     public void test() throws IOException {
         benchSetup(null);
+        System.out.println(new String(testJSON));
         iter.reset(testJSON);
-        assertEquals("", iter.read(typeLiteral).field1);
+        assertEquals(31415926, iter.read(typeLiteral).field1);
     }
 
     public static void main(String[] args) throws IOException, RunnerException {

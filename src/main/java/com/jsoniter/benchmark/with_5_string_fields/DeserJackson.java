@@ -14,18 +14,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark           Mode  Cnt      Score      Error  Units
-DeserJackson.deser  avgt    5  29180.023 ± 1749.310  ns/op
-
-    56,279,412,462      cycles                                                        (66.70%)
-   116,926,101,144      instructions              #    2.08  insns per cycle          (83.36%)
-       573,621,852      cache-references                                              (83.40%)
-       108,661,118      cache-misses              #   18.943 % of all cache refs      (83.36%)
-            44,355      page-faults
-    21,278,471,110      branches                                                      (83.33%)
-       146,063,366      branch-misses             #    0.69% of all branches          (83.32%)
-
-      16.180194459 seconds time elapsed
+Benchmark           Mode  Cnt       Score       Error  Units
+DeserJackson.deser  avgt    5  359868.351 ± 41680.907  ns/op
  */
 @State(Scope.Thread)
 public class DeserJackson {
@@ -47,7 +37,7 @@ public class DeserJackson {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void deser(Blackhole bh) throws IOException {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             bh.consume(objectMapper.readValue(testJSON, typeReference));
         }
     }

@@ -21,18 +21,8 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
 /*
-Benchmark        Mode  Cnt     Score     Error  Units
-SerJsoniter.ser  avgt    5  5227.980 ± 246.125  ns/op
-
-    55,954,769,626      cycles                                                        (66.70%)
-    92,606,806,682      instructions              #    1.66  insns per cycle          (83.32%)
-       314,644,367      cache-references                                              (83.34%)
-        47,722,145      cache-misses              #   15.167 % of all cache refs      (83.32%)
-            44,954      page-faults
-    16,550,644,697      branches                                                      (83.31%)
-       137,954,713      branch-misses             #    0.83% of all branches          (83.43%)
-
-      15.852883000 seconds time elapsed
+Benchmark        Mode  Cnt      Score      Error  Units
+SerJsoniter.ser  avgt    5  57081.756 ± 2751.095  ns/op
  */
 @State(Scope.Thread)
 public class SerJsoniter {
@@ -43,6 +33,7 @@ public class SerJsoniter {
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
+//        JsonIterator.enableAnnotationSupport();
         JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
         JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
         testObject = TestObject.createTestObject();
@@ -54,7 +45,7 @@ public class SerJsoniter {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void ser(Blackhole bh) throws IOException {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             byteArrayOutputStream.reset();
             stream.reset(byteArrayOutputStream);
             stream.writeVal(testObject);
@@ -65,6 +56,7 @@ public class SerJsoniter {
 
     @Test
     public void test() throws IOException {
+//        JsonIterator.enableAnnotationSupport();
         benchSetup(null);
         byteArrayOutputStream.reset();
         stream.reset(byteArrayOutputStream);

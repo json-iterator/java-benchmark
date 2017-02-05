@@ -1,53 +1,49 @@
 package com.jsoniter.benchmark.with_10_string_fields;
 
 import com.dslplatform.json.CompiledJson;
+import com.jsoniter.annotation.JsonProperty;
 import com.jsoniter.output.JsonStream;
 
 @CompiledJson
 public class TestObject {
 
+    @JsonProperty(nullable = false)
     public String field1;
+    @JsonProperty(nullable = false)
     public String field2;
+    @JsonProperty(nullable = false)
     public String field3;
+    @JsonProperty(nullable = false)
     public String field4;
+    @JsonProperty(nullable = false)
     public String field5;
+    @JsonProperty(nullable = false)
     public String field6;
+    @JsonProperty(nullable = false)
     public String field7;
+    @JsonProperty(nullable = false)
     public String field8;
+    @JsonProperty(nullable = false)
     public String field9;
+    @JsonProperty(nullable = false)
     public String field10;
 
     public static TestObject createTestObject() {
         TestObject testObject = new TestObject();
-        testObject.field1 = "";
-        testObject.field2 = "";
-        testObject.field3 = "";
-        testObject.field4 = "";
-        testObject.field5 = "";
-        testObject.field6 = "";
-        testObject.field7 = "";
-        testObject.field8 = "";
-        testObject.field9 = "";
-        testObject.field10 = "";
+        testObject.field1 = "1";
+        testObject.field2 = "2";
+        testObject.field3 = "3";
+        testObject.field4 = "4";
+        testObject.field5 = "5";
+        testObject.field6 = "6";
+        testObject.field7 = "7";
+        testObject.field8 = "8";
+        testObject.field9 = "9";
+        testObject.field10 = "10";
         return testObject;
     }
 
     public static byte[] createTestJSON() {
         return JsonStream.serialize(createTestObject()).getBytes();
-    }
-
-    public static byte[] createLargeTestJSON() {
-        TestObject testObject = new TestObject();
-        testObject.field1 = "Javaone Keynotelkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field2 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field3 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field4 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field5 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field6 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field7 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field8 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field9 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        testObject.field10 = "video/mpg4lkajldfjlskajdflkjslfjdslfjldjfljsdfljsdlfjsljfldjfldjals;djfasldjf;alskdjf;aslkdjf;asdjf;laskdjflsjdalfjd;alksjdfl;jsa;lfdja;slkdjf;alsjfd;lajsfl;dj";
-        return JsonStream.serialize(testObject).getBytes();
     }
 }

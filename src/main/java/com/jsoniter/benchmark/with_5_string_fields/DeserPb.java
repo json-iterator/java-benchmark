@@ -17,6 +17,10 @@ import org.openjdk.jmh.runner.RunnerException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+/*
+Benchmark      Mode  Cnt       Score      Error  Units
+DeserPb.deser  avgt    5  276972.857 ± 8704.378  ns/op
+ */
 @State(Scope.Thread)
 public class DeserPb {
 

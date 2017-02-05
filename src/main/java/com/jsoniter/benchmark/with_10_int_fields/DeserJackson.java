@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark           Mode  Cnt       Score       Error  Units
-DeserJackson.deser  avgt    5  612888.557 ± 35348.528  ns/op
+Benchmark           Mode  Cnt       Score      Error  Units
+DeserJackson.deser  avgt    5  604894.752 ± 3315.567  ns/op
  */
 @State(Scope.Thread)
 public class DeserJackson {

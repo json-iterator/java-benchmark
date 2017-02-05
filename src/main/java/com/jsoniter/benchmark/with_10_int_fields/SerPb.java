@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark      Mode  Cnt      Score      Error  Units
-DeserPb.deser  avgt    5  83348.992 ± 4892.105  ns/op
+Benchmark  Mode  Cnt       Score      Error  Units
+SerPb.ser  avgt    5  121027.285 ± 2261.397  ns/op
  */
 @State(Scope.Thread)
 public class SerPb {

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 /*
 Benchmark          Mode  Cnt       Score      Error  Units
-DeserThrift.deser  avgt    5  201031.552 ± 5668.831  ns/op
+DeserThrift.deser  avgt    5  202921.616 ± 2402.650  ns/op
  */
 @State(Scope.Thread)
 public class DeserThrift {

@@ -19,18 +19,8 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
 /*
-Benchmark            Mode  Cnt     Score     Error  Units
-DeserJsoniter.deser  avgt    5  2371.497 ± 217.607  ns/op (7.41x)
-
-    55,298,363,003      cycles                                                        (66.73%)
-   134,257,098,760      instructions              #    2.43  insns per cycle          (83.46%)
-       378,869,967      cache-references                                              (83.33%)
-        80,583,430      cache-misses              #   21.269 % of all cache refs      (83.34%)
-            45,041      page-faults
-    23,279,091,965      branches                                                      (83.38%)
-       147,305,324      branch-misses             #    0.63% of all branches          (83.33%)
-
-      16.429735981 seconds time elapsed
+Benchmark            Mode  Cnt       Score      Error  Units
+DeserJsoniter.deser  avgt    5  245837.298 ± 7178.562  ns/op
  */
 @State(Scope.Thread)
 public class DeserJsoniter {

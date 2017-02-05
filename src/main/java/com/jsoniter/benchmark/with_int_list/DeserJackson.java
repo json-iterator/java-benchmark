@@ -14,18 +14,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark           Mode  Cnt      Score     Error  Units
-DeserJackson.deser  avgt    5  17576.385 ± 228.182  ns/op
-
-   126,386,032,615      cycles                                                        (66.68%)
-   263,160,822,593      instructions              #    2.08  insns per cycle          (83.30%)
-     1,673,330,433      cache-references                                              (83.33%)
-       308,170,490      cache-misses              #   18.417 % of all cache refs      (83.36%)
-            44,738      page-faults
-    41,044,621,048      branches                                                      (83.35%)
-       148,438,183      branch-misses             #    0.36% of all branches          (83.34%)
-
-      36.199834604 seconds time elapsed
+Benchmark           Mode  Cnt       Score       Error  Units
+DeserJackson.deser  avgt    5  730450.607 ± 38756.189  ns/op
  */
 @State(Scope.Thread)
 public class DeserJackson {

@@ -32,21 +32,6 @@ public class TestObject {
         return testObject;
     }
 
-    public static TestObject createTestObject2() {
-        TestObject testObject = new TestObject();
-        testObject.field1 = 1;
-        testObject.field2 = 12;
-        testObject.field3 = 123;
-        testObject.field4 = 1234;
-        testObject.field5 = 12345;
-        testObject.field6 = 123456;
-        testObject.field7 = 5432;
-        testObject.field8 = 543;
-        testObject.field9 = 54;
-        testObject.field10 = 5;
-        return testObject;
-    }
-
     public static byte[] createTestJSON() {
         return JsonStream.serialize(createTestObject()).getBytes();
     }

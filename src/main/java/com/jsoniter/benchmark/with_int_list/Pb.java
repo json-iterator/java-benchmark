@@ -567,7 +567,7 @@ public final class Pb {
   static {
     java.lang.String[] descriptorData = {
       "\n\010Pb.proto\"\"\n\014PbTestObject\022\022\n\006field1\030\001 \003" +
-      "(\005B\002\020\001b\006proto3"
+      "(\005B\002\020\001B\002H\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

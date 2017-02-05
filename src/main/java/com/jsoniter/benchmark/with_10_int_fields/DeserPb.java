@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 /*
 Benchmark      Mode  Cnt      Score      Error  Units
-DeserPb.deser  avgt    5  83348.992 ± 4892.105  ns/op
+DeserPb.deser  avgt    5  71067.990 ± 2736.220  ns/op
  */
 @State(Scope.Thread)
 public class DeserPb {
