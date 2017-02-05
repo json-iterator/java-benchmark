@@ -1,0 +1,21 @@
+syntax = "proto3";
+message PbTestWriteObject {
+  string field1 = 1;
+  string field2 = 2;
+  string field3 = 3;
+  string field4 = 4;
+  string field5 = 5;
+  string field6 = 6;
+  string field7 = 7;
+  string field8 = 8;
+  string field9 = 9;
+  string field10 = 10;
+  string field11 = 11;
+  string field12 = 12;
+  string field13 = 13;
+  string field14 = 14;
+  string field15 = 15;
+}
+message PbTestReadObject {
+  string field15 = 15;
+}

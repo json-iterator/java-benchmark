@@ -1,0 +1,5 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+message PbTestObject {
+  repeated int32 field1 = 1 [packed=true];
+}
