@@ -1,6 +1,5 @@
-package com.jsoniter.benchmark.with_long_string;
+package com.jsoniter.benchmark.with_double_array;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.jsoniter.benchmark.All;
@@ -10,42 +9,44 @@ import org.openjdk.jmh.infra.BenchmarkParams;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.RunnerException;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark           Mode  Cnt       Score      Error  Units
-DeserJackson.deser  avgt    5  321406.155 ± 8595.583  ns/op
+Benchmark       Mode  Cnt        Score       Error  Units
+SerJackson.ser  avgt    5  1684935.837 ± 41600.448  ns/op
  */
 @State(Scope.Thread)
-public class DeserJackson {
+public class SerJackson {
 
     private ObjectMapper objectMapper;
-    private TypeReference<TestObject> typeReference;
-    private byte[] testJSON;
+    private ByteArrayOutputStream byteArrayOutputStream;
+    private TestObject testObject;
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
         objectMapper = new ObjectMapper();
         objectMapper.registerModule(new AfterburnerModule());
-        typeReference = new TypeReference<TestObject>() {
-        };
-        testJSON = TestObject.createTestJSON();
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        testObject = TestObject.createTestObject();
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
-    public void deser(Blackhole bh) throws IOException {
+    public void ser(Blackhole bh) throws IOException {
         for (int i = 0; i < 1000; i++) {
-            bh.consume(objectMapper.readValue(testJSON, typeReference));
+            byteArrayOutputStream.reset();
+            objectMapper.writeValue(byteArrayOutputStream, testObject);
+            bh.consume(byteArrayOutputStream);
         }
     }
 
     public static void main(String[] args) throws IOException, RunnerException {
         All.loadJMH();
         Main.main(new String[]{
-                "with_long_string.DeserJackson",
+                "with_double_array.SerJackson",
                 "-i", "5",
                 "-wi", "5",
                 "-f", "1",

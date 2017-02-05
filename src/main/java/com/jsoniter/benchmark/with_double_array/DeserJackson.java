@@ -1,4 +1,4 @@
-package com.jsoniter.benchmark.with_long_string;
+package com.jsoniter.benchmark.with_double_array;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /*
-Benchmark           Mode  Cnt       Score      Error  Units
-DeserJackson.deser  avgt    5  321406.155 ± 8595.583  ns/op
+Benchmark           Mode  Cnt        Score       Error  Units
+DeserJackson.deser  avgt    5  1075423.265 ± 41582.347  ns/op
  */
 @State(Scope.Thread)
 public class DeserJackson {
@@ -45,7 +45,7 @@ public class DeserJackson {
     public static void main(String[] args) throws IOException, RunnerException {
         All.loadJMH();
         Main.main(new String[]{
-                "with_long_string.DeserJackson",
+                "with_double_array.DeserJackson",
                 "-i", "5",
                 "-wi", "5",
                 "-f", "1",

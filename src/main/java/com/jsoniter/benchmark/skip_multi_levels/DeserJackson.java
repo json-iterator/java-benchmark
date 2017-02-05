@@ -36,12 +36,17 @@ public class DeserJackson {
 
     private ObjectMapper objectMapper;
     private TypeReference<TestReadObject> typeReference;
-    private byte[] testJSON = ("{\"field2\":{\"1\":" +
-            "[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
+    private byte[] testJSON = ("{\"field2\":{" +
+            "\"1\":[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
             "\"2\":[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
-            "\"3\":[\"1\",\"2\",\"3\",\"4\",\"5\"]}," +
-            "\"field1\":[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
-            "\"field3\":\"xxxx-3\"}").getBytes();
+            "\"3\":[\"1\",\"2\",\"3\",\"4\",\"5\"]" +
+            "}," +
+            "\"field1\":[" +
+            "\"1\",\"2\",\"3\",\"4\",\"5\"," +
+            "\"1\",\"2\",\"3\",\"4\",\"5\"," +
+            "\"1\",\"2\",\"3\",\"4\",\"5\"" +
+            "]," +
+            "\"field3\":\"x-3\"}").getBytes();
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {

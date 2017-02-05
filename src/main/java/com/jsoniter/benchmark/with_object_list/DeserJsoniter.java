@@ -1,4 +1,4 @@
-package com.jsoniter.benchmark.with_long_string;
+package com.jsoniter.benchmark.with_object_list;
 
 import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 
 /*
 Benchmark            Mode  Cnt       Score      Error  Units
-DeserJsoniter.deser  avgt    5  134067.924 ± 2869.475  ns/op
+DeserJsoniter.deser  avgt    5  483304.365 ± 9157.552  ns/op
  */
 @State(Scope.Thread)
 public class DeserJsoniter {
@@ -52,17 +52,16 @@ public class DeserJsoniter {
     public void test() throws IOException {
         benchSetup(null);
         iter.reset(testJSON);
-        assertEquals("", iter.read(typeLiteral).field1);
+        assertEquals(31415926, iter.read(typeLiteral).field1);
     }
 
     public static void main(String[] args) throws IOException, RunnerException {
         All.loadJMH();
         Main.main(new String[]{
-                "with_long_string.DeserJsoniter",
+                "with_object_list.DeserJsoniter",
                 "-i", "5",
                 "-wi", "5",
                 "-f", "1",
-//                "-jvmArgsAppend", "--add-exports java.base/java.lang=ALL-UNNAMED",
         });
     }
 }

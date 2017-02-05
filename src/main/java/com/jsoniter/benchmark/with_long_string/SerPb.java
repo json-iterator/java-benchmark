@@ -1,10 +1,7 @@
-package com.jsoniter.benchmark.with_10_string_fields;
+package com.jsoniter.benchmark.with_long_string;
 
-import com.jsoniter.DecodingMode;
-import com.jsoniter.JsonIterator;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.jsoniter.benchmark.All;
-import com.jsoniter.output.EncodingMode;
-import com.jsoniter.output.JsonStream;
 import org.junit.Test;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.*;
@@ -16,26 +13,24 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-
 /*
-Benchmark        Mode  Cnt       Score      Error  Units
-SerJsoniter.ser  avgt    5  129305.086 ± 3322.190  ns/op
+Benchmark  Mode  Cnt      Score      Error  Units
+SerPb.ser  avgt    5  65802.792 ± 1028.761  ns/op
  */
 @State(Scope.Thread)
-public class SerJsoniter {
+public class SerPb {
 
-    private TestObject testObject;
-    private JsonStream stream;
+    private Pb.PbTestObject testObject;
     private ByteArrayOutputStream byteArrayOutputStream;
+    private String longStr;
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
-        JsonIterator.enableAnnotationSupport();
-        JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
-        JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
-        testObject = TestObject.createTestObject();
-        stream = new JsonStream(null, 512);
+        longStr= "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789";
+        testObject = Pb.PbTestObject.newBuilder()
+                .setField1(longStr)
+//                .setField1("0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789")
+                .build();
         byteArrayOutputStream = new ByteArrayOutputStream();
     }
 
@@ -44,10 +39,9 @@ public class SerJsoniter {
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void ser(Blackhole bh) throws IOException {
         for (int i = 0; i < 1000; i++) {
+            testObject.field1_ = longStr;
             byteArrayOutputStream.reset();
-            stream.reset(byteArrayOutputStream);
-            stream.writeVal(testObject);
-            stream.flush();
+            testObject.writeTo(byteArrayOutputStream);
             bh.consume(byteArrayOutputStream);
         }
     }
@@ -55,17 +49,15 @@ public class SerJsoniter {
     @Test
     public void test() throws IOException {
         benchSetup(null);
+        testObject.field1_ = longStr;
         byteArrayOutputStream.reset();
-        stream.reset(byteArrayOutputStream);
-        stream.writeVal(testObject);
-        stream.flush();
-        assertEquals("{\"field1\":\"\"}", byteArrayOutputStream.toString());
+        testObject.writeTo(byteArrayOutputStream);
     }
 
     public static void main(String[] args) throws IOException, RunnerException {
         All.loadJMH();
         Main.main(new String[]{
-                "with_10_string_fields.SerJsoniter",
+                "with_long_string.SerPb",
                 "-i", "5",
                 "-wi", "5",
                 "-f", "1",

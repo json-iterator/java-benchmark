@@ -1,9 +1,8 @@
-package com.jsoniter.benchmark.with_long_string;
+package com.jsoniter.benchmark.with_double_array;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
+import com.dslplatform.json.CustomJsonReader;
 import com.jsoniter.benchmark.All;
+import com.jsoniter.benchmark.ExternalSerialization;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.BenchmarkParams;
@@ -15,22 +14,18 @@ import java.util.concurrent.TimeUnit;
 
 /*
 Benchmark           Mode  Cnt       Score      Error  Units
-DeserJackson.deser  avgt    5  321406.155 ± 8595.583  ns/op
+DeserDslJson.deser  avgt    5  383549.289 ± 5568.975  ns/op
  */
 @State(Scope.Thread)
-public class DeserJackson {
+public class DeserDslJson {
 
-    private ObjectMapper objectMapper;
-    private TypeReference<TestObject> typeReference;
     private byte[] testJSON;
+    private CustomJsonReader reader;
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
-        objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new AfterburnerModule());
-        typeReference = new TypeReference<TestObject>() {
-        };
         testJSON = TestObject.createTestJSON();
+        reader = new CustomJsonReader(testJSON);
     }
 
     @Benchmark
@@ -38,14 +33,19 @@ public class DeserJackson {
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void deser(Blackhole bh) throws IOException {
         for (int i = 0; i < 1000; i++) {
-            bh.consume(objectMapper.readValue(testJSON, typeReference));
+            reader.reset();
+            reader.read();
+            reader.getNextToken();
+            TestObject obj = new TestObject();
+            ExternalSerialization.deserialize(obj, reader);
+            bh.consume(obj);
         }
     }
 
     public static void main(String[] args) throws IOException, RunnerException {
         All.loadJMH();
         Main.main(new String[]{
-                "with_long_string.DeserJackson",
+                "with_double_array.DeserDslJson",
                 "-i", "5",
                 "-wi", "5",
                 "-f", "1",

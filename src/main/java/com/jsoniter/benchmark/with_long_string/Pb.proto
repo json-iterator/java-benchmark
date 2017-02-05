@@ -1,0 +1,5 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+message PbTestObject {
+  string field1 = 1;
+}

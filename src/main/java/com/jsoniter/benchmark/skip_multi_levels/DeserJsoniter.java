@@ -35,12 +35,17 @@ DeserJsoniter.deser  avgt    5  2371.497 ± 217.607  ns/op (7.41x)
 @State(Scope.Thread)
 public class DeserJsoniter {
 
-    private byte[] testJSON = ("{\"field2\":{\"1\":" +
-            "[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
+    private byte[] testJSON = ("{\"field2\":{" +
+            "\"1\":[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
             "\"2\":[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
-            "\"3\":[\"1\",\"2\",\"3\",\"4\",\"5\"]}," +
-            "\"field1\":[\"1\",\"2\",\"3\",\"4\",\"5\"]," +
-            "\"field3\":\"xxxx-3\"}").getBytes();
+            "\"3\":[\"1\",\"2\",\"3\",\"4\",\"5\"]" +
+            "}," +
+            "\"field1\":[" +
+            "\"1\",\"2\",\"3\",\"4\",\"5\"," +
+            "\"1\",\"2\",\"3\",\"4\",\"5\"," +
+            "\"1\",\"2\",\"3\",\"4\",\"5\"" +
+            "]," +
+            "\"field3\":\"x-3\"}").getBytes();
     private JsonIterator iter;
     private TypeLiteral<TestReadObject> typeLiteral;
 
@@ -62,12 +67,22 @@ public class DeserJsoniter {
         }
     }
 
+//    @Benchmark
+//    @BenchmarkMode(Mode.AverageTime)
+//    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+//    public void deserAny(Blackhole bh) throws IOException {
+//        for (int i = 0; i < 1000; i++) {
+//            iter.reset(testJSON);
+//            bh.consume(iter.readAny().toString("field3"));
+//        }
+//    }
+
     @Test
     public void test() throws IOException {
         benchSetup(null);
         System.out.println(new String(testJSON));
         iter.reset(testJSON);
-        assertEquals("xxxx-3", iter.read(typeLiteral).field3);
+        assertEquals("x-3", iter.read(typeLiteral).field3);
     }
 
     public static void main(String[] args) throws IOException, RunnerException {
