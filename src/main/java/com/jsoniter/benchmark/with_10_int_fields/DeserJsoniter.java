@@ -14,6 +14,8 @@ import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.RunnerException;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -25,7 +27,7 @@ DeserJsoniter.deser  avgt    5  187654.012 ± 1685.110  ns/op
 @State(Scope.Thread)
 public class DeserJsoniter {
 
-    private byte[] testJSON;
+    private List<byte[]> testJSON;
     private JsonIterator iter;
     private TypeLiteral<TestObject> typeLiteral;
 
@@ -33,7 +35,29 @@ public class DeserJsoniter {
     public void benchSetup(BenchmarkParams params) {
         JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
         JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
-        testJSON = TestObject.createTestJSON();
+        testJSON = Arrays.asList(
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson(),
+                TestObject.createRandomTestJson());
+//        byte[] fixed = TestObject.createRandomTestJson();
+//        testJSON = Arrays.asList(
+//                fixed,
+//                fixed,
+//                fixed,
+//                fixed,
+//                fixed,
+//                fixed,
+//                fixed,
+//                fixed,
+//                fixed,
+//                fixed);
         iter = new JsonIterator();
         typeLiteral = TypeLiteral.create(TestObject.class);
     }
@@ -43,7 +67,7 @@ public class DeserJsoniter {
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void deser(Blackhole bh) throws IOException {
         for (int i = 0; i < 1000; i++) {
-            iter.reset(testJSON);
+            iter.reset(testJSON.get(i % 10));
             bh.consume(iter.read(typeLiteral));
         }
     }
@@ -51,8 +75,8 @@ public class DeserJsoniter {
     @Test
     public void test() throws IOException {
         benchSetup(null);
-        System.out.println(new String(testJSON));
-        iter.reset(testJSON);
+        System.out.println(new String(testJSON.get(0)));
+        iter.reset(testJSON.get(0));
         assertEquals(31415926, iter.read(typeLiteral).field1);
     }
 

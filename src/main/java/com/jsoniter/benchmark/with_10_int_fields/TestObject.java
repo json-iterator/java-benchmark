@@ -3,6 +3,8 @@ package com.jsoniter.benchmark.with_10_int_fields;
 import com.dslplatform.json.CompiledJson;
 import com.jsoniter.output.JsonStream;
 
+import java.util.Random;
+
 @CompiledJson
 public class TestObject {
 
@@ -34,5 +36,21 @@ public class TestObject {
 
     public static byte[] createTestJSON() {
         return JsonStream.serialize(createTestObject()).getBytes();
+    }
+
+    public static byte[] createRandomTestJson() {
+        TestObject testObject = new TestObject();
+        Random random = new Random();
+        testObject.field1 = random.nextInt(61415923);
+        testObject.field2 = random.nextInt(61415923);
+        testObject.field3 = random.nextInt(61415923);
+        testObject.field4 = random.nextInt(61415923);
+        testObject.field5 = random.nextInt(61415923);
+        testObject.field6 = random.nextInt(61415923);
+        testObject.field7 = random.nextInt(61415923);
+        testObject.field8 = random.nextInt(61415923);
+        testObject.field9 = random.nextInt(61415923);
+        testObject.field10 = random.nextInt(61415923);
+        return JsonStream.serialize(testObject).getBytes();
     }
 }

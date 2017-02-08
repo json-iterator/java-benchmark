@@ -1,32 +1,31 @@
-package com.jsoniter.benchmark.with_10_string_fields;
+package com.jsoniter.benchmark.with_10_string_fields_exact_match;
 
 import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;
-import com.jsoniter.annotation.JsonProperty;
 import com.jsoniter.output.JsonStream;
 
 @CompiledJson
 public class TestObject {
 
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field1;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field2;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field3;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field4;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field5;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field6;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field7;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field8;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field9;
-    @JsonProperty(nullable = false)
+    @JsonAttribute(hashMatch = false)
     public String field10;
 
     public static TestObject createTestObject() {

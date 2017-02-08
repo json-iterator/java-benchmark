@@ -35,6 +35,18 @@ public class DeserPb {
                 .setField9(43.161592)
                 .setField10(0.112)
                 .build();
+        obj = Pb.PbTestObject.newBuilder()
+                .setField1(31415926)
+                .setField2(61415923)
+                .setField3(31415269)
+                .setField4(53141926)
+                .setField5(13145926)
+                .setField6(43115926)
+                .setField7(31419265)
+                .setField8(23141596)
+                .setField9(43161592)
+                .setField10(112)
+                .build();
         testData = obj.toByteArray();
     }
 

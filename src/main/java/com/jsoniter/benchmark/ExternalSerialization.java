@@ -19,7 +19,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	public static void setup(final com.dslplatform.json.DslJson json) {
 		
 		
-		json.registerReader(com.jsoniter.benchmark.skip_same_level.TestReadObject.class, JSON_READER_struct17);
+		json.registerReader(com.jsoniter.benchmark.skip_same_level.TestReadObject.class, JSON_READER_struct18);
 		json.registerWriter(com.jsoniter.benchmark.skip_same_level.TestReadObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.skip_same_level.TestReadObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.skip_same_level.TestReadObject value) {
@@ -43,6 +43,14 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
+		json.registerReader(com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject.class, JSON_READER_struct10);
+		json.registerWriter(com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject>() {
+			@Override
+			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject value) {
+				serialize(value, writer, json.omitDefaults);
+			}
+		});
+		
 		json.registerReader(com.jsoniter.benchmark.with_15_string_fields.TestObject.class, JSON_READER_struct2);
 		json.registerWriter(com.jsoniter.benchmark.with_15_string_fields.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_15_string_fields.TestObject>() {
 			@Override
@@ -51,7 +59,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
-		json.registerReader(com.jsoniter.benchmark.with_int.TestObject.class, JSON_READER_struct11);
+		json.registerReader(com.jsoniter.benchmark.with_int.TestObject.class, JSON_READER_struct12);
 		json.registerWriter(com.jsoniter.benchmark.with_int.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_int.TestObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_int.TestObject value) {
@@ -67,7 +75,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
-		json.registerReader(com.jsoniter.benchmark.with_int_list.TestObject.class, JSON_READER_struct14);
+		json.registerReader(com.jsoniter.benchmark.with_int_list.TestObject.class, JSON_READER_struct15);
 		json.registerWriter(com.jsoniter.benchmark.with_int_list.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_int_list.TestObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_int_list.TestObject value) {
@@ -75,7 +83,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
-		json.registerReader(com.jsoniter.benchmark.with_string_list.TestObject.class, JSON_READER_struct10);
+		json.registerReader(com.jsoniter.benchmark.with_string_list.TestObject.class, JSON_READER_struct11);
 		json.registerWriter(com.jsoniter.benchmark.with_string_list.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_string_list.TestObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_string_list.TestObject value) {
@@ -91,7 +99,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
-		json.registerReader(com.jsoniter.benchmark.with_10_double_fields.TestObject.class, JSON_READER_struct12);
+		json.registerReader(com.jsoniter.benchmark.with_10_double_fields.TestObject.class, JSON_READER_struct13);
 		json.registerWriter(com.jsoniter.benchmark.with_10_double_fields.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_10_double_fields.TestObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_10_double_fields.TestObject value) {
@@ -99,7 +107,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
-		json.registerReader(com.jsoniter.benchmark.with_string_map_string.TestObject.class, JSON_READER_struct13);
+		json.registerReader(com.jsoniter.benchmark.with_string_map_string.TestObject.class, JSON_READER_struct14);
 		json.registerWriter(com.jsoniter.benchmark.with_string_map_string.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_string_map_string.TestObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_string_map_string.TestObject value) {
@@ -107,7 +115,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
-		json.registerReader(com.jsoniter.benchmark.with_double.TestObject.class, JSON_READER_struct16);
+		json.registerReader(com.jsoniter.benchmark.with_double.TestObject.class, JSON_READER_struct17);
 		json.registerWriter(com.jsoniter.benchmark.with_double.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_double.TestObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_double.TestObject value) {
@@ -123,7 +131,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 		});
 		
-		json.registerReader(com.jsoniter.benchmark.with_10_string_fields.TestObject.class, JSON_READER_struct15);
+		json.registerReader(com.jsoniter.benchmark.with_10_string_fields.TestObject.class, JSON_READER_struct16);
 		json.registerWriter(com.jsoniter.benchmark.with_10_string_fields.TestObject.class, new com.dslplatform.json.JsonWriter.WriteObject<com.jsoniter.benchmark.with_10_string_fields.TestObject>() {
 			@Override
 			public void write(com.dslplatform.json.JsonWriter writer, com.jsoniter.benchmark.with_10_string_fields.TestObject value) {
@@ -196,7 +204,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.skip_same_level.TestReadObject> JSON_READER_struct17 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.skip_same_level.TestReadObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.skip_same_level.TestReadObject> JSON_READER_struct18 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.skip_same_level.TestReadObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.skip_same_level.TestReadObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -211,7 +219,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.skip_same_level.TestReadObject deserializestruct17(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.skip_same_level.TestReadObject deserializestruct18(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.skip_same_level.TestReadObject instance = new com.jsoniter.benchmark.skip_same_level.TestReadObject();
 		deserialize(instance, reader);
 		return instance;
@@ -779,6 +787,401 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 		instance.field4 = _field4_;
 	}
 	
+	public static void serialize(final com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject self, final com.dslplatform.json.JsonWriter sw, final boolean minimal) {
+		sw.writeByte(com.dslplatform.json.JsonWriter.OBJECT_START);
+		if (minimal) {
+			__serializeJsonObjectMinimal(self, sw, false);
+		} else {
+			__serializeJsonObjectFull(self, sw, false);
+		}
+		sw.writeByte(com.dslplatform.json.JsonWriter.OBJECT_END);
+	}
+
+	public static void __serializeJsonObjectMinimal(final com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject self, com.dslplatform.json.JsonWriter sw, boolean hasWrittenProperty) {
+		
+		
+			if (self.field1 != null) {
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field1\":", 9);
+				sw.writeString(self.field1);
+			}
+		
+			if (self.field10 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field10\":", 10);
+				sw.writeString(self.field10);
+			}
+		
+			if (self.field7 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field7\":", 9);
+				sw.writeString(self.field7);
+			}
+		
+			if (self.field6 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field6\":", 9);
+				sw.writeString(self.field6);
+			}
+		
+			if (self.field9 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field9\":", 9);
+				sw.writeString(self.field9);
+			}
+		
+			if (self.field8 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field8\":", 9);
+				sw.writeString(self.field8);
+			}
+		
+			if (self.field3 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field3\":", 9);
+				sw.writeString(self.field3);
+			}
+		
+			if (self.field2 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field2\":", 9);
+				sw.writeString(self.field2);
+			}
+		
+			if (self.field5 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field5\":", 9);
+				sw.writeString(self.field5);
+			}
+		
+			if (self.field4 != null) {
+			if(hasWrittenProperty) sw.writeByte(com.dslplatform.json.JsonWriter.COMMA);
+			hasWrittenProperty = true;
+				sw.writeAscii("\"field4\":", 9);
+				sw.writeString(self.field4);
+			}
+	}
+
+	public static void __serializeJsonObjectFull(final com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject self, com.dslplatform.json.JsonWriter sw, boolean hasWrittenProperty) {
+		
+		
+			
+			if (self.field1 != null) {
+				sw.writeAscii("\"field1\":", 9);
+				sw.writeString(self.field1);
+			} else {
+				sw.writeAscii("\"field1\":null", 13);
+			}
+		
+			
+			if (self.field10 != null) {
+				sw.writeAscii(",\"field10\":", 11);
+				sw.writeString(self.field10);
+			} else {
+				sw.writeAscii(",\"field10\":null", 15);
+			}
+		
+			
+			if (self.field7 != null) {
+				sw.writeAscii(",\"field7\":", 10);
+				sw.writeString(self.field7);
+			} else {
+				sw.writeAscii(",\"field7\":null", 14);
+			}
+		
+			
+			if (self.field6 != null) {
+				sw.writeAscii(",\"field6\":", 10);
+				sw.writeString(self.field6);
+			} else {
+				sw.writeAscii(",\"field6\":null", 14);
+			}
+		
+			
+			if (self.field9 != null) {
+				sw.writeAscii(",\"field9\":", 10);
+				sw.writeString(self.field9);
+			} else {
+				sw.writeAscii(",\"field9\":null", 14);
+			}
+		
+			
+			if (self.field8 != null) {
+				sw.writeAscii(",\"field8\":", 10);
+				sw.writeString(self.field8);
+			} else {
+				sw.writeAscii(",\"field8\":null", 14);
+			}
+		
+			
+			if (self.field3 != null) {
+				sw.writeAscii(",\"field3\":", 10);
+				sw.writeString(self.field3);
+			} else {
+				sw.writeAscii(",\"field3\":null", 14);
+			}
+		
+			
+			if (self.field2 != null) {
+				sw.writeAscii(",\"field2\":", 10);
+				sw.writeString(self.field2);
+			} else {
+				sw.writeAscii(",\"field2\":null", 14);
+			}
+		
+			
+			if (self.field5 != null) {
+				sw.writeAscii(",\"field5\":", 10);
+				sw.writeString(self.field5);
+			} else {
+				sw.writeAscii(",\"field5\":null", 14);
+			}
+		
+			
+			if (self.field4 != null) {
+				sw.writeAscii(",\"field4\":", 10);
+				sw.writeString(self.field4);
+			} else {
+				sw.writeAscii(",\"field4\":null", 14);
+			}
+	}
+
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject> JSON_READER_struct10 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject>() {
+		@SuppressWarnings("unchecked")
+		@Override
+		public com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+			if(reader.last() != '{') {
+				throw new java.io.IOException("Expecting \'{\' at position " + reader.positionInStream() + ". Found " + (char)reader.last());
+			}
+			reader.getNextToken();
+			final com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject instance = new com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject();
+			deserialize(instance, reader);
+			return instance;
+		}
+	};
+
+	@SuppressWarnings("unchecked")
+	static com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject deserializestruct10(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+		final com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject instance = new com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject();
+		deserialize(instance, reader);
+		return instance;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static void deserialize(final com.jsoniter.benchmark.with_10_string_fields_exact_match.TestObject instance, final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+		
+		String _field1_ = null;
+		String _field10_ = null;
+		String _field7_ = null;
+		String _field6_ = null;
+		String _field9_ = null;
+		String _field8_ = null;
+		String _field3_ = null;
+		String _field2_ = null;
+		String _field5_ = null;
+		String _field4_ = null;
+		byte nextToken = reader.last();
+		if(nextToken != '}') {
+			int nameHash = reader.fillName();
+			nextToken = reader.getNextToken();
+			if(nextToken == 'n') {
+				if (reader.wasNull()) {
+					nextToken = reader.getNextToken();
+				} else {
+					throw new java.io.IOException("Expecting 'u' (as null) at position " + reader.positionInStream() + ". Found " + (char)nextToken);
+				}
+			} else {
+				switch(nameHash) {
+					
+					case 1212206434:
+					if (reader.wasLastName("field1")) {
+						_field1_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 268646422:
+					if (reader.wasLastName("field10")) {
+						_field10_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1111540720:
+					if (reader.wasLastName("field7")) {
+						_field7_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1128318339:
+					if (reader.wasLastName("field6")) {
+						_field6_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1346427386:
+					if (reader.wasLastName("field9")) {
+						_field9_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1363205005:
+					if (reader.wasLastName("field8")) {
+						_field8_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1178651196:
+					if (reader.wasLastName("field3")) {
+						_field3_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1195428815:
+					if (reader.wasLastName("field2")) {
+						_field2_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1145095958:
+					if (reader.wasLastName("field5")) {
+						_field5_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1161873577:
+					if (reader.wasLastName("field4")) {
+						_field4_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					default:
+						nextToken = reader.skip();
+						break;
+				}
+			}
+			while (nextToken == ',') {
+				nextToken = reader.getNextToken();
+				nameHash = reader.fillName();
+				nextToken = reader.getNextToken();
+				if(nextToken == 'n') {
+					if (reader.wasNull()) {
+						nextToken = reader.getNextToken();
+						continue;
+					} else {
+						throw new java.io.IOException("Expecting 'u' (as null) at position " + reader.positionInStream() + ". Found " + (char)nextToken);
+					}
+				}
+				switch(nameHash) {
+					
+					case 1212206434:
+					if (reader.wasLastName("field1")) {
+						_field1_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 268646422:
+					if (reader.wasLastName("field10")) {
+						_field10_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1111540720:
+					if (reader.wasLastName("field7")) {
+						_field7_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1128318339:
+					if (reader.wasLastName("field6")) {
+						_field6_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1346427386:
+					if (reader.wasLastName("field9")) {
+						_field9_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1363205005:
+					if (reader.wasLastName("field8")) {
+						_field8_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1178651196:
+					if (reader.wasLastName("field3")) {
+						_field3_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1195428815:
+					if (reader.wasLastName("field2")) {
+						_field2_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1145095958:
+					if (reader.wasLastName("field5")) {
+						_field5_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					case 1161873577:
+					if (reader.wasLastName("field4")) {
+						_field4_ = com.dslplatform.json.StringConverter.deserialize(reader);
+					nextToken = reader.getNextToken();
+					}
+						else { nextToken = reader.skip(); }
+						break;
+					default:
+						nextToken = reader.skip();
+						break;
+				}
+			}
+			if (nextToken != '}') {
+				throw new java.io.IOException("Expecting '}' at position " + reader.positionInStream() + ". Found " + (char)nextToken);
+			}
+		}
+		
+		instance.field1 = _field1_;
+		instance.field10 = _field10_;
+		instance.field7 = _field7_;
+		instance.field6 = _field6_;
+		instance.field9 = _field9_;
+		instance.field8 = _field8_;
+		instance.field3 = _field3_;
+		instance.field2 = _field2_;
+		instance.field5 = _field5_;
+		instance.field4 = _field4_;
+	}
+	
 	public static void serialize(final com.jsoniter.benchmark.with_15_string_fields.TestObject self, final com.dslplatform.json.JsonWriter sw, final boolean minimal) {
 		sw.writeByte(com.dslplatform.json.JsonWriter.OBJECT_START);
 		if (minimal) {
@@ -1267,7 +1670,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			com.dslplatform.json.NumberConverter.serialize(self.field1, sw);
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int.TestObject> JSON_READER_struct11 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int.TestObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int.TestObject> JSON_READER_struct12 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int.TestObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.with_int.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -1282,7 +1685,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.with_int.TestObject deserializestruct11(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.with_int.TestObject deserializestruct12(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.with_int.TestObject instance = new com.jsoniter.benchmark.with_int.TestObject();
 		deserialize(instance, reader);
 		return instance;
@@ -1503,7 +1906,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 		else sw.writeAscii("\"field1\":null", 13);
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int_list.TestObject> JSON_READER_struct14 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int_list.TestObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int_list.TestObject> JSON_READER_struct15 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_int_list.TestObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.with_int_list.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -1518,7 +1921,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.with_int_list.TestObject deserializestruct14(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.with_int_list.TestObject deserializestruct15(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.with_int_list.TestObject instance = new com.jsoniter.benchmark.with_int_list.TestObject();
 		deserialize(instance, reader);
 		return instance;
@@ -1645,7 +2048,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 		else sw.writeAscii("\"field1\":null", 13);
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_list.TestObject> JSON_READER_struct10 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_list.TestObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_list.TestObject> JSON_READER_struct11 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_list.TestObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.with_string_list.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -1660,7 +2063,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.with_string_list.TestObject deserializestruct10(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.with_string_list.TestObject deserializestruct11(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.with_string_list.TestObject instance = new com.jsoniter.benchmark.with_string_list.TestObject();
 		deserialize(instance, reader);
 		return instance;
@@ -1976,7 +2379,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			com.dslplatform.json.NumberConverter.serialize(self.field4, sw);
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_double_fields.TestObject> JSON_READER_struct12 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_double_fields.TestObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_double_fields.TestObject> JSON_READER_struct13 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_double_fields.TestObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.with_10_double_fields.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -1991,7 +2394,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.with_10_double_fields.TestObject deserializestruct12(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.with_10_double_fields.TestObject deserializestruct13(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.with_10_double_fields.TestObject instance = new com.jsoniter.benchmark.with_10_double_fields.TestObject();
 		deserialize(instance, reader);
 		return instance;
@@ -2176,7 +2579,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_map_string.TestObject> JSON_READER_struct13 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_map_string.TestObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_map_string.TestObject> JSON_READER_struct14 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_string_map_string.TestObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.with_string_map_string.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -2191,7 +2594,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.with_string_map_string.TestObject deserializestruct13(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.with_string_map_string.TestObject deserializestruct14(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.with_string_map_string.TestObject instance = new com.jsoniter.benchmark.with_string_map_string.TestObject();
 		deserialize(instance, reader);
 		return instance;
@@ -2282,7 +2685,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			com.dslplatform.json.NumberConverter.serialize(self.field1, sw);
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_double.TestObject> JSON_READER_struct16 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_double.TestObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_double.TestObject> JSON_READER_struct17 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_double.TestObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.with_double.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -2297,7 +2700,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.with_double.TestObject deserializestruct16(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.with_double.TestObject deserializestruct17(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.with_double.TestObject instance = new com.jsoniter.benchmark.with_double.TestObject();
 		deserialize(instance, reader);
 		return instance;
@@ -2637,7 +3040,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 			}
 	}
 
-	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_string_fields.TestObject> JSON_READER_struct15 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_string_fields.TestObject>() {
+	public static final com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_string_fields.TestObject> JSON_READER_struct16 = new com.dslplatform.json.JsonReader.ReadObject<com.jsoniter.benchmark.with_10_string_fields.TestObject>() {
 		@SuppressWarnings("unchecked")
 		@Override
 		public com.jsoniter.benchmark.with_10_string_fields.TestObject read(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
@@ -2652,7 +3055,7 @@ public class ExternalSerialization implements com.dslplatform.json.Configuration
 	};
 
 	@SuppressWarnings("unchecked")
-	static com.jsoniter.benchmark.with_10_string_fields.TestObject deserializestruct15(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
+	static com.jsoniter.benchmark.with_10_string_fields.TestObject deserializestruct16(final com.dslplatform.json.JsonReader reader) throws java.io.IOException {
 		final com.jsoniter.benchmark.with_10_string_fields.TestObject instance = new com.jsoniter.benchmark.with_10_string_fields.TestObject();
 		deserialize(instance, reader);
 		return instance;

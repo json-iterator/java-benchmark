@@ -10,6 +10,9 @@ import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.RunnerException;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /*
@@ -19,23 +22,38 @@ DeserPb.deser  avgt    5  71067.990 ± 2736.220  ns/op
 @State(Scope.Thread)
 public class DeserPb {
 
-    private byte[] testData;
+    private List<byte[]> testData;
+    private Random random;
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
-        Pb.PbTestObject obj = Pb.PbTestObject.newBuilder()
-                .setField1(31415926)
-                .setField2(61415923)
-                .setField3(31415269)
-                .setField4(53141926)
-                .setField5(13145926)
-                .setField6(43115926)
-                .setField7(31419265)
-                .setField8(23141596)
-                .setField9(43161592)
-                .setField10(112)
-                .build();
-        testData = obj.toByteArray();
+        random = new Random();
+        testData = Arrays.asList(
+                createData(),
+                createData(),
+                createData(),
+                createData(),
+                createData(),
+                createData(),
+                createData(),
+                createData(),
+                createData(),
+                createData());
+    }
+
+    private byte[] createData() {
+        return Pb.PbTestObject.newBuilder()
+                .setField1(random.nextInt(61415923))
+                .setField2(random.nextInt(61415923))
+                .setField3(random.nextInt(61415923))
+                .setField4(random.nextInt(61415923))
+                .setField5(random.nextInt(61415923))
+                .setField6(random.nextInt(61415923))
+                .setField7(random.nextInt(61415923))
+                .setField8(random.nextInt(61415923))
+                .setField9(random.nextInt(61415923))
+                .setField10(random.nextInt(61415923))
+                .build().toByteArray();
     }
 
     @Benchmark
@@ -43,15 +61,15 @@ public class DeserPb {
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public void deser(Blackhole bh) throws IOException {
         for (int i = 0; i < 1000; i++) {
-            bh.consume(Pb.PbTestObject.parseFrom(testData));
+            bh.consume(Pb.PbTestObject.parseFrom(testData.get(i % 10)));
         }
     }
 
     @Test
     public void test() throws InvalidProtocolBufferException {
-        benchSetup(null);
-        Pb.PbTestObject parsed = Pb.PbTestObject.parseFrom(testData);
-        System.out.println(parsed.getField1());
+//        benchSetup(null);
+//        Pb.PbTestObject parsed = Pb.PbTestObject.parseFrom(testData);
+//        System.out.println(parsed.getField1());
     }
 
     public static void main(String[] args) throws IOException, RunnerException {

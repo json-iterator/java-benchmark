@@ -1,12 +1,10 @@
 package com.jsoniter.benchmark.with_10_double_fields;
 
-import com.jsoniter.DecodingMode;
-import com.jsoniter.JsonIterator;
+import com.alibaba.fastjson.serializer.JSONSerializer;
+import com.alibaba.fastjson.serializer.SerializeConfig;
+import com.alibaba.fastjson.serializer.SerializeWriter;
+import com.alibaba.fastjson.util.IOUtils;
 import com.jsoniter.benchmark.All;
-import com.jsoniter.extra.Base64FloatSupport;
-import com.jsoniter.output.EncodingMode;
-import com.jsoniter.output.JsonStream;
-import org.junit.Test;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.BenchmarkParams;
@@ -17,28 +15,20 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-
-/*
-Benchmark        Mode  Cnt       Score      Error  Units
-SerJsoniter.ser  avgt    5  280252.226 ± 3812.810  ns/op
- */
 @State(Scope.Thread)
-public class SerJsoniter {
+public class SerFastjson {
 
     private TestObject testObject;
-    private JsonStream stream;
     private ByteArrayOutputStream byteArrayOutputStream;
+    private SerializeConfig serializeConfig;
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
-        Base64FloatSupport.enableEncodersAndDecoders();
-        JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
-        JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
         testObject = TestObject.createTestObject();
-        stream = new JsonStream(null, 512);
         byteArrayOutputStream = new ByteArrayOutputStream();
+        serializeConfig = SerializeConfig.getGlobalInstance();
     }
+
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -46,27 +36,18 @@ public class SerJsoniter {
     public void ser(Blackhole bh) throws IOException {
         for (int i = 0; i < 1000; i++) {
             byteArrayOutputStream.reset();
-            stream.reset(byteArrayOutputStream);
-            stream.writeVal(testObject);
-            stream.flush();
+            SerializeWriter writer = new SerializeWriter();
+            JSONSerializer serializer = new JSONSerializer(writer, serializeConfig);
+            serializer.write(testObject);
+            writer.writeToEx(byteArrayOutputStream, IOUtils.UTF8);
+            serializer.close();
             bh.consume(byteArrayOutputStream);
         }
     }
-
-    @Test
-    public void test() throws IOException {
-        benchSetup(null);
-        byteArrayOutputStream.reset();
-        stream.reset(byteArrayOutputStream);
-        stream.writeVal(testObject);
-        stream.flush();
-        assertEquals("{\"field1\":\"\"}", byteArrayOutputStream.toString());
-    }
-
     public static void main(String[] args) throws IOException, RunnerException {
         All.loadJMH();
         Main.main(new String[]{
-                "with_10_double_fields.SerJsoniter",
+                "with_10_double_fields.SerFastjson",
                 "-i", "5",
                 "-wi", "5",
                 "-f", "1",

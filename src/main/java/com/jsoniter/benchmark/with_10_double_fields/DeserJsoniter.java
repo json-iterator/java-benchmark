@@ -3,6 +3,7 @@ package com.jsoniter.benchmark.with_10_double_fields;
 import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.benchmark.All;
+import com.jsoniter.extra.Base64FloatSupport;
 import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
 import com.jsoniter.spi.TypeLiteral;
@@ -31,9 +32,11 @@ public class DeserJsoniter {
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
+        Base64FloatSupport.enableEncodersAndDecoders();
         JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
         JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
         testJSON = TestObject.createTestJSON();
+        System.out.println(new String(testJSON));
         iter = new JsonIterator();
         typeLiteral = TypeLiteral.create(TestObject.class);
     }
