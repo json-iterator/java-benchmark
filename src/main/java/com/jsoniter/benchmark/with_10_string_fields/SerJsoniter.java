@@ -1,10 +1,10 @@
 package com.jsoniter.benchmark.with_10_string_fields;
 
-import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.benchmark.All;
 import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
+import com.jsoniter.spi.DecodingMode;
 import org.junit.Test;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.*;
@@ -31,7 +31,7 @@ public class SerJsoniter {
 
     @Setup(Level.Trial)
     public void benchSetup(BenchmarkParams params) {
-        JsonIterator.enableAnnotationSupport();
+        //JsonIterator.enableAnnotationSupport();
         JsonStream.setMode(EncodingMode.DYNAMIC_MODE);
         JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
         testObject = TestObject.createTestObject();

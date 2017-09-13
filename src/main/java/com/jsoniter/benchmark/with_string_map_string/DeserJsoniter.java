@@ -1,10 +1,10 @@
 package com.jsoniter.benchmark.with_string_map_string;
 
-import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.benchmark.All;
 import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
+import com.jsoniter.spi.DecodingMode;
 import com.jsoniter.spi.TypeLiteral;
 import org.junit.Test;
 import org.openjdk.jmh.Main;

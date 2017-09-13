@@ -1,12 +1,11 @@
 package com.jsoniter.benchmark.with_1_string_field;
 
-import com.jsoniter.DecodingMode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.benchmark.All;
 import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
+import com.jsoniter.spi.DecodingMode;
 import com.jsoniter.spi.TypeLiteral;
-import javassist.NotFoundException;
 import org.junit.Test;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.*;
@@ -14,7 +13,6 @@ import org.openjdk.jmh.infra.BenchmarkParams;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.RunnerException;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
